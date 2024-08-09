@@ -1,8 +1,8 @@
-import { Text, View } from "react-native";
-import { Avatar } from "./avatar";
-import { MaterialIcons } from "@expo/vector-icons";
-import { colors } from "@/styles/colors";
-import { EmailDataProps } from "@/utils/emails";
+import { Text, View } from 'react-native'
+import { Avatar } from './avatar'
+import { MaterialIcons } from '@expo/vector-icons'
+import { colors } from '@/styles/colors'
+import { EmailDataProps } from '@/utils/emails'
 
 type EmailProps = {
   data: EmailDataProps
@@ -10,24 +10,26 @@ type EmailProps = {
 
 export function Email({ data }: EmailProps) {
   return (
-    <View className="w-full flex-row gap-4 items-center last:mb-5">
+    <View className="w-full flex-row items-center gap-4">
       <Avatar source={{ uri: data.avatar }} />
 
       <View className="flex-1">
         <View className="flex-row items-center gap-1">
           {data.marker && (
-            <MaterialIcons name="label-important" size={16} color={colors.yellow[600]} />
+            <MaterialIcons
+              name="label-important"
+              size={16}
+              color={colors.yellow[600]}
+            />
           )}
-          <Text className="text-lg font-subtitle text-gray-400 flex-1">
+          <Text className="flex-1 font-subtitle text-lg text-gray-400">
             {data.name}
           </Text>
-          <Text className="text-sm font-body text-gray-400">
-            {data.date}
-          </Text>
+          <Text className="font-body text-sm text-gray-400">{data.date}</Text>
         </View>
 
         <Text
-          className="text-base font-body text-gray-400"
+          className="font-body text-base text-gray-400"
           numberOfLines={1}
           lineBreakMode="tail"
         >
@@ -36,7 +38,7 @@ export function Email({ data }: EmailProps) {
 
         <View className="flex-row items-center gap-4">
           <Text
-            className="text-base font-body text-gray-400 flex-1"
+            className="flex-1 font-body text-base text-gray-400"
             numberOfLines={1}
             lineBreakMode="tail"
           >
@@ -44,7 +46,7 @@ export function Email({ data }: EmailProps) {
           </Text>
 
           <MaterialIcons
-            name={data.starred ? "star" : "star-outline"}
+            name={data.starred ? 'star' : 'star-outline'}
             size={22}
             color={data.starred ? colors.yellow[600] : colors.blue[600]}
           />
